@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+    <!--/*@thymesVar id="name" type="java.lang.String"*/-->
+    <p th:text="'Hello！, ' + ${name} + '!'">3333</p>
+    <span th:text="${book.author.name}"></span>
+    <div th:object="${book}">
+    	<span th:text="*{title}"></span>
+    </div>
+    <input type="text" th:text="#{login.username}" />
+    <input type="text" th:text="#{login.password}" />
+    <input type="text" th:text="(${book.type} ?: 'Unknown')">
+    <a th:href="@{https://www.e-learn.cn/thymeleaf/}">aa</a>
+    <a th:href="@{/order/list}">bb</a>
+    <a th:href="@{/order/details(id=3)}">ccc</a>
+</body>
+</html>
