@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Controller;
@@ -14,12 +16,20 @@ public class UserController {
 	public String index(Map<String,Object> paramMap) {
 		paramMap.put("name", "李四");
 		paramMap.put("age",30);
+		paramMap.put("msg","<h1>啦啦啦</h1>");
 		Book book=new Book();
 		book.setTitle("钢铁是怎样炼成的");
 		Author author=new Author();
 		author.setName("Michael");
 		book.setAuthor(author);
-		paramMap.put("book", book);																																																																																																							
+		paramMap.put("book", book);	
+		Book book2=new Book();
+		book.setTitle("红楼梦");
+		book2.setDesc("中国小说");
+		List<Book>books=new ArrayList<Book>();
+		books.add(book);
+		books.add(book2);
+		paramMap.put("books", books);
 		return "home";
 	}
 	

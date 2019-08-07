@@ -13,9 +13,32 @@
     </div>
     <input type="text" th:text="#{login.username}" />
     <input type="text" th:text="#{login.password}" />
-    <input type="text" th:text="(${book.type} ?: 'Unknown')">
+    <input type="text" th:text="(${book.type} ?: 'Unknown')"><br/>
+    <input type="text" th:text="${book.IsMadeInChina()}?'in China':(${book.type} ?: 'Unknown')"><br/>
+    <input type="text" th:text="'book is of type'+(${book.type}?:'Unknown')" />
+    <input type="text" th:text="|the name is ${book.getTitle()}|" /><br/>
+    <input type="text" th:text="truee" /><br/>
+    <input type="text" th:text="null" /><br/>
+    <input type="text" th:text="true?'Michael'" /><br/>
+        <input type="text" th:text="false?'Chanddle'" /><br/>
+    <input type="text" th:text="${msg}"/>
+    <input type="text" th:utext="${msg}" />
     <a th:href="@{https://www.e-learn.cn/thymeleaf/}">aa</a>
     <a th:href="@{/order/list}">bb</a>
     <a th:href="@{/order/details(id=3)}">ccc</a>
+    <h4>if使用</h4>
+    <a th:if="${name=='李四'}">显示a标签</a>
+     <a th:if="${name=='abc'}">a标签不会显示</a>
+     <h4>each使用</h4>
+     <tr th:each="collect,iterStat:${books}">
+     	<th th:text="${collect.title}"></th>
+     	<th th:text="${collect.desc}"></th>
+     	<th th:text="${iterStat.index}"></th>
+     </tr>
+     <h4>switch使用</h4>
+     <div th:switch="${name}">
+     <p th:case="'李sk四'">it's 李四</p>
+     <p th:case="'Michael'">it's Michael</p>
+     </div>
 </body>
 </html>
